@@ -1,0 +1,12 @@
+<launch>
+  <!-- direction param: choose from 'comp2raw' or 'raw2comp' -->
+  <arg name="direction" default="comp2raw"/>
+  <arg name="input_topic" default="/camera2/image_raw/compressed"/>
+  <arg name="output_topic" default="/camera2/image_raw"/>
+
+  <node pkg="ros-msg-bridge" type="img_convert_node" name="img_convert" output="screen">
+    <param name="direction" value="$(arg direction)"/>
+    <param name="input_topic" value="$(arg input_topic)"/>
+    <param name="output_topic" value="$(arg output_topic)"/>
+  </node>
+</launch>
